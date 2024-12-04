@@ -2,6 +2,7 @@ package com.germanfica.stripe.controller;
 
 import com.germanfica.stripe.model.LoginResponse;
 import com.germanfica.stripe.service.ApiService;
+import com.stripe.exception.StripeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ApiController {
     // == endpoints ==
     @ResponseBody
     @GetMapping(value = "/wsaa/invoke")
-    public ResponseEntity<LoginResponse> invokeWsaa() {
+    public ResponseEntity<LoginResponse> invokeWsaa() throws StripeException {
         return ResponseEntity.ok(apiService.invokeWsaa());
     }
 }
